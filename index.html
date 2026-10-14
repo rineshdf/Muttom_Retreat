@@ -34,8 +34,8 @@
         .schedule-list li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         .time-col { min-width: 120px; font-weight: 600; color: #d4af37; }
 
-        /* --- Custom Payment Portal Styles --- */
-        :root {
+        /* --- SCOPED PAYMENT PORTAL CSS (No global body tags to prevent crashing) --- */
+        #payment-portal {
             --primary: #0284c7;
             --primary-dark: #0369a1;
             --accent: #2563eb;
@@ -47,15 +47,16 @@
             --card-bg: rgba(255, 255, 255, 0.98);
         }
 
-        .payment-wrapper {
+        #payment-portal .payment-wrapper {
+            background: linear-gradient(135deg, #0284c7 0%, #1e40af 50%, #312e81 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 16px;
-            width: 100%;
+            padding: 40px 16px;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
         }
 
-        .payment-card {
+        #payment-portal .payment-card {
             background: var(--card-bg);
             width: 100%;
             max-width: 1100px;
@@ -66,16 +67,17 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            color: var(--dark);
         }
 
         @media (min-width: 768px) {
-            .payment-card {
+            #payment-portal .payment-card {
                 padding: 36px 40px;
                 gap: 26px;
             }
         }
 
-        .header-bar {
+        #payment-portal .header-bar {
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -84,23 +86,24 @@
         }
 
         @media (min-width: 600px) {
-            .header-bar {
+            #payment-portal .header-bar {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
         }
 
-        .brand-title {
+        #payment-portal .brand-title {
             font-size: clamp(20px, 2.4vw, 30px);
             font-weight: 900;
             background: linear-gradient(90deg, #0284c7, #2563eb, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
+            margin: 0;
         }
 
-        .verified-badge {
+        #payment-portal .verified-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -114,7 +117,7 @@
             width: fit-content;
         }
 
-        .status-dot {
+        #payment-portal .status-dot {
             width: 8px;
             height: 8px;
             background: var(--emerald);
@@ -122,21 +125,21 @@
             box-shadow: 0 0 10px var(--emerald);
         }
 
-        .main-grid {
+        #payment-portal .main-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             align-items: stretch;
         }
 
-        @media (min-width: 860px) {
-            .main-grid {
+        @media (min-width: 960px) {
+            #payment-portal .main-grid {
                 grid-template-columns: 360px 1fr;
                 gap: 32px;
             }
         }
 
-        .qr-panel {
+        #payment-portal .qr-panel {
             background: linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%);
             border: 1.5px solid #bae6fd;
             border-radius: 22px;
@@ -148,7 +151,7 @@
             gap: 16px;
         }
 
-        .qr-frame {
+        #payment-portal .qr-frame {
             background: #ffffff;
             padding: 12px;
             border-radius: 20px;
@@ -156,7 +159,7 @@
             box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15);
         }
 
-        .qr-frame img {
+        #payment-portal .qr-frame img {
             width: 170px;
             height: 170px;
             display: block;
@@ -164,20 +167,20 @@
         }
 
         @media (min-width: 860px) {
-            .qr-frame img {
+            #payment-portal .qr-frame img {
                 width: 220px;
                 height: 220px;
             }
         }
 
-        .actions-stack {
+        #payment-portal .actions-stack {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .action-btn {
+        #payment-portal .btn {
             width: 100%;
             padding: 13px 18px;
             border-radius: 14px;
@@ -193,28 +196,28 @@
             text-decoration: none;
         }
 
-        .btn-phone {
+        #payment-portal .btn-phone {
             background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
             color: #ffffff;
             box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
         }
-        .btn-phone:active {
+        #payment-portal .btn-phone:active {
             transform: scale(0.98);
             filter: brightness(0.95);
         }
 
-        .btn-download {
+        #payment-portal .btn-download {
             background: #ffffff;
             color: #0369a1;
             border: 1.5px solid #38bdf8;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        .btn-download:active {
+        #payment-portal .btn-download:active {
             background: #f0f9ff;
             transform: scale(0.98);
         }
 
-        .details-panel {
+        #payment-portal .details-panel {
             background: #ffffff;
             border: 1.5px solid var(--border);
             border-radius: 22px;
@@ -226,12 +229,12 @@
         }
 
         @media (min-width: 768px) {
-            .details-panel {
+            #payment-portal .details-panel {
                 padding: 26px 28px;
             }
         }
 
-        .bank-brand {
+        #payment-portal .bank-brand {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -241,7 +244,7 @@
             letter-spacing: 0.5px;
         }
 
-        .name-banner {
+        #payment-portal .name-banner {
             background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
             border: 1.5px solid #bfdbfe;
             border-radius: 16px;
@@ -251,7 +254,7 @@
             gap: 4px;
         }
 
-        .name-label {
+        #payment-portal .name-label {
             font-size: 11px;
             font-weight: 800;
             color: #0284c7;
@@ -259,7 +262,7 @@
             letter-spacing: 0.8px;
         }
 
-        .name-value {
+        #payment-portal .name-value {
             font-size: clamp(16px, 1.8vw, 21px);
             font-weight: 900;
             color: var(--dark);
@@ -267,13 +270,13 @@
             word-break: normal;
         }
 
-        .info-list {
+        #payment-portal .info-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .info-row {
+        #payment-portal .info-row {
             display: flex;
             flex-direction: column;
             background: #f8fafc;
@@ -285,19 +288,19 @@
         }
 
         @media (min-width: 500px) {
-            .info-row {
+            #payment-portal .info-row {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
         }
 
-        .info-row:hover {
+        #payment-portal .info-row:hover {
             background: #f0f9ff;
             border-color: #bae6fd;
         }
 
-        .row-label {
+        #payment-portal .row-label {
             color: var(--muted);
             font-size: 12px;
             font-weight: 700;
@@ -305,14 +308,14 @@
             letter-spacing: 0.5px;
         }
 
-        .row-val-group {
+        #payment-portal .row-val-group {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
         }
 
-        .row-val {
+        #payment-portal .row-val {
             font-size: clamp(14px, 1.4vw, 17px);
             font-weight: 800;
             color: var(--dark);
@@ -320,7 +323,7 @@
             word-break: break-all;
         }
 
-        .chip {
+        #payment-portal .chip {
             background: #e0f2fe;
             color: #0284c7;
             font-size: 11px;
@@ -336,17 +339,17 @@
             flex-shrink: 0;
         }
 
-        .chip:hover {
+        #payment-portal .chip:hover {
             background: #0284c7;
             color: #ffffff;
             border-color: #0284c7;
         }
 
-        .chip:active {
+        #payment-portal .chip:active {
             transform: scale(0.96);
         }
 
-        .footer-note {
+        #payment-portal .footer-note {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
@@ -357,6 +360,17 @@
             align-items: center;
             gap: 8px;
         }
+        
+        #payment-portal .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        @media (max-width: 600px) {
+            #payment-portal .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body class="bg-rich-900 text-rich-light font-sans antialiased">
@@ -366,7 +380,7 @@
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rich-800 via-rich-900 to-black z-0"></div>
         
         <div class="relative z-10 space-y-6 max-w-4xl mx-auto mt-10">
-            <h3 class="text-rich-gold font-serif text-xl tracking-widest uppercase">We Invite You To</h3> <!--[cite: 1] -->
+            <h3 class="text-rich-gold font-serif text-xl tracking-widest uppercase">We Invite You To <!--[cite: 1] --></h3>
             <h1 class="text-6xl md:text-8xl font-serif font-bold text-white tracking-wide drop-shadow-lg">
                 MEDIRETREAT'26 <!--[cite: 1] -->
             </h1>
@@ -381,15 +395,20 @@
                 <p class="text-rich-gold mt-4 font-semibold text-lg">— Acts 9:15 <!--[cite: 1] --></p>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mt-8">
-                <div class="glass-panel px-8 py-5 rounded-xl min-w-[250px]">
+            <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 mt-8">
+                <div class="glass-panel px-8 py-5 rounded-xl min-w-[250px] flex flex-col justify-center">
                     <p class="font-bold text-2xl text-white">OCT 18-20 <!--[cite: 1] --></p>
                     <p class="text-sm text-rich-gold uppercase tracking-widest mt-1">SUN - TUE <!--[cite: 1] --></p>
                 </div>
-                <div class="glass-panel px-8 py-5 rounded-xl min-w-[250px]">
-                    <p class="font-bold text-xl text-white">ROCK BIBLE CENTRE <!--[cite: 1] --></p>
-                    <p class="text-sm text-rich-gold uppercase tracking-widest mt-1">Muttom, Kanyakumari <!--[cite: 1] --></p>
-                </div>
+                
+                <!-- CLICKABLE LOCATION MAP LINK -->
+                <a href="https://www.google.com/maps/search/?api=1&query=Rock+Bible+Centre,+Muttom,+Kanyakumari" target="_blank" rel="noopener noreferrer" class="glass-panel px-8 py-5 rounded-xl min-w-[250px] hover:bg-white/10 transition group cursor-pointer flex flex-col justify-center">
+                    <p class="font-bold text-xl text-white group-hover:text-rich-gold transition">ROCK BIBLE CENTRE <!--[cite: 1] --></p>
+                    <p class="text-sm text-gray-300 uppercase tracking-widest mt-2 flex items-center justify-center gap-2">
+                        📍 Muttom, Kanyakumari <!--[cite: 1] --> 
+                    </p>
+                    <span class="text-xs text-rich-gold underline mt-1">(Click here to get location) <!--[cite: 1] --></span>
+                </a>
             </div>
 
             <!-- Countdown Timer -->
@@ -506,7 +525,6 @@
             <h2 class="text-5xl font-serif text-center text-rich-gold mb-16">Distinguished Speakers</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 text-center">
-                
                 <!-- Speaker 1 -->
                 <div class="glass-panel p-6 rounded-2xl hover:bg-rich-800 transition duration-300">
                     <h4 class="font-serif font-bold text-white text-xl mb-1">Dr. Ashok Kumar <!--[cite: 5] --></h4>
@@ -579,9 +597,9 @@
         </div>
     </section>
 
-    <!-- Payment & Contact Portal -->
-    <section class="py-24 bg-rich-800 border-t border-rich-gold/10" id="contact">
-        <div class="payment-wrapper text-left font-sans">
+    <!-- Payment & Contact Portal (SCOPED) -->
+    <section id="payment-portal">
+        <div class="payment-wrapper font-sans">
             <div class="payment-card">
                 <!-- Header -->
                 <header class="header-bar">
@@ -597,4 +615,166 @@
                     <!-- Left Column: Visual QR and Download Action -->
                     <section class="qr-panel">
                         <div class="qr-frame">
-                            <img id="qrImg" src="
+                            <img id="qrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=upi%3A%2F%2Fpay%3Fpa%3Dallenselvaraj%40sbi%26pn%3DALLEN%2520S%2520D%2520PAUL%2520SELVARAJ" alt="Payment QR Code">
+                        </div>
+
+                        <div class="actions-stack">
+                            <button class="btn btn-phone" id="phoneBtn" onclick="copyText('8838903573', 'phoneBtn', '📱 Copy PhoneNo: 8838903573')">
+                                📱 Copy PhoneNo: 8838903573 <!--[cite: 7] -->
+                            </button>
+                            <button class="btn btn-download" id="dlBtn" onclick="downloadQR()">
+                                📥 Download QR Code
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Right Column: Full Banking & Name Details & Contacts -->
+                    <section class="details-panel">
+                        <div class="bank-brand">
+                            🏛️ STATE BANK OF INDIA <!--[cite: 7] -->
+                        </div>
+
+                        <!-- Account Holder Banner -->
+                        <div class="name-banner">
+                            <span class="name-label">Account Holder Name <!--[cite: 7] --></span>
+                            <span class="name-value">ALLEN S D PAUL SELVARAJ <!--[cite: 7] --></span>
+                        </div>
+
+                        <!-- Banking Information Rows -->
+                        <div class="info-list">
+                            <div class="info-row">
+                                <span class="row-label">Account Number</span>
+                                <div class="row-val-group">
+                                    <span class="row-val">45147364819 <!--[cite: 7] --></span>
+                                    <button class="chip" onclick="copyText('45147364819', null)">📋 Copy</button>
+                                </div>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="row-label">IFSC Code</span>
+                                <div class="row-val-group">
+                                    <span class="row-val">SBIN0064310 <!--[cite: 7] --></span>
+                                    <button class="chip" onclick="copyText('SBIN0064310', null)">📋 Copy</button>
+                                </div>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="row-label">UPI ID</span>
+                                <div class="row-val-group">
+                                    <span class="row-val">allenselvaraj@sbi <!--[cite: 7] --></span>
+                                    <button class="chip" onclick="copyText('allenselvaraj@sbi', null)">📋 Copy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information Integrated into the Card -->
+                        <div style="border-top: 1px solid #e2e8f0; margin-top: 8px; padding-top: 16px;">
+                            <span class="row-label" style="display:block; margin-bottom:10px;">Contact For Verification <!--[cite: 7] --></span>
+                            <div class="contact-grid">
+                                <div class="info-row" style="margin:0;">
+                                    <span class="row-label" style="font-size:11px; color:#0284c7;">John Meshak <!--[cite: 7] --></span>
+                                    <a href="tel:6374504075" style="font-weight:800; color:var(--dark); text-decoration:none;">6374504075 <!--[cite: 7] --></a>
+                                </div>
+                                <div class="info-row" style="margin:0;">
+                                    <span class="row-label" style="font-size:11px; color:#0284c7;">Janani <!--[cite: 7] --></span>
+                                    <a href="tel:9600981833" style="font-weight:800; color:var(--dark); text-decoration:none;">9600981833 <!--[cite: 7] --></a>
+                                </div>
+                                <div class="info-row" style="margin:0;">
+                                    <span class="row-label" style="font-size:11px; color:#0284c7;">Allen S D Paul <!--[cite: 7] --></span>
+                                    <a href="tel:9489182664" style="font-weight:800; color:var(--dark); text-decoration:none;">9489182664 <!--[cite: 7] --></a>
+                                </div>
+                                <div class="info-row" style="margin:0;">
+                                    <span class="row-label" style="font-size:11px; color:#0284c7;">Kalyani <!--[cite: 7] --></span>
+                                    <a href="tel:8220718169" style="font-weight:800; color:var(--dark); text-decoration:none;">8220718169 <!--[cite: 7] --></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </section>
+                </div>
+
+                <!-- Clear Instructions Footer -->
+                <footer class="footer-note">
+                    💡 <span><b>Fast Pay:</b> Open <b>GPay</b>, <b>PhonePe</b>, or <b>Paytm</b>, choose <b>Pay Phone Number</b> with <b>8838903573</b> or scan the downloaded QR from your gallery.</span>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-rich-900 py-10 text-center text-sm text-gray-500 border-t border-white/5">
+        <p class="font-serif">Mediretreat'26 - Chosen Vessel of Mine. Hosted via GitHub Pages.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- Timer Script Wrapped in DOMContentLoaded to ensure it runs ---
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Set the date we're counting down to: Oct 18, 2026 08:30:00 <!--[cite: 1, 2] -->
+            const countDownDate = new Date("Oct 18, 2026 08:30:00").getTime();
+
+            const x = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const daysEl = document.getElementById("days");
+                const hoursEl = document.getElementById("hours");
+                const minsEl = document.getElementById("minutes");
+                const secsEl = document.getElementById("seconds");
+
+                if (daysEl && hoursEl && minsEl && secsEl) {
+                    daysEl.innerHTML = days.toString().padStart(2, '0');
+                    hoursEl.innerHTML = hours.toString().padStart(2, '0');
+                    minsEl.innerHTML = minutes.toString().padStart(2, '0');
+                    secsEl.innerHTML = seconds.toString().padStart(2, '0');
+                }
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    const countdownWrapper = document.getElementById("countdown");
+                    if(countdownWrapper) {
+                        countdownWrapper.innerHTML = "<div class='text-4xl text-rich-gold font-bold'>The Retreat Has Begun!</div>";
+                    }
+                }
+            }, 1000);
+        });
+
+        // --- Payment Portal Scripts ---
+        function copyText(val, btnId, originalText) {
+            navigator.clipboard.writeText(val).then(() => {
+                if (btnId) {
+                    const btn = document.getElementById(btnId);
+                    btn.innerText = "✓ Copied Successfully!";
+                    btn.style.background = "#10b981";
+                    btn.style.color = "#ffffff";
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = "";
+                        btn.style.color = "";
+                    }, 2000);
+                } else {
+                    const toast = document.createElement("div");
+                    toast.innerText = "Copied: " + val;
+                    toast.style.cssText = "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#ffffff;padding:10px 20px;border-radius:30px;font-size:13px;font-weight:800;z-index:9999;box-shadow:0 8px 20px rgba(0,0,0,0.3);";
+                    document.body.appendChild(toast);
+                    setTimeout(() => toast.remove(), 1800);
+                }
+            }).catch(err => {
+                console.error("Failed to copy text: ", err);
+            });
+        }
+
+        async function downloadQR() {
+            const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=upi%3A%2F%2Fpay%3Fpa%3Dallenselvaraj%40sbi%26pn%3DALLEN%2520S%2520D%2520PAUL%2520SELVARAJ";
+            const btn = document.getElementById("dlBtn");
+            btn.innerText = "⏳ Downloading...";
+            try {
+                const response = await fetch(qrUrl);
+                const blob = await response.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+                const link = document.createElement
